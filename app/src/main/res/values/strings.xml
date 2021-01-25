@@ -4,4 +4,5 @@
     <string name="desserts">Desserts</string>
     <string name="plats">Plats</string>
     <string name="bienvenue">Bienvenue chez DroidRestaurant</string>
+    <string name="title">Title</string>
 </resources>
