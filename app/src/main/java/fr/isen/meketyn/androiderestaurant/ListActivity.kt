@@ -14,6 +14,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
 import fr.isen.meketyn.androiderestaurant.databinding.ActivityListBinding
+import fr.isen.meketyn.androiderestaurant.network.Dish
 import fr.isen.meketyn.androiderestaurant.network.MenuResult
 import org.json.JSONObject
 import java.util.*
@@ -32,7 +33,7 @@ class ListActivity : AppCompatActivity() {
         val message = intent.getStringExtra("message_key")
         val messageTextView : TextView = findViewById(R.id.textView2)
         messageTextView.text = message
-        loadList()
+
         val queue = Volley.newRequestQueue(this)
         val url = "http://test.api.catering.bluecodegames.com/menu"
 
@@ -45,9 +46,13 @@ class ListActivity : AppCompatActivity() {
         Response.Listener<JSONObject> { response ->
             Log.d("request", response.toString(2))
             val menuResult = GsonBuilder().create().fromJson(response.toString(), MenuResult::class.java)
-            menuResult.data.forEach {
+            /*menuResult.data.forEach {
                 Log.d("request", it.name)
+            }*/
+            val items = menuResult.data.firstOrNull{
+                it.name == message
             }
+            loadList(items?.items)
         },
         Response.ErrorListener { error ->
             error.message?.let {
@@ -57,12 +62,17 @@ class ListActivity : AppCompatActivity() {
             }})
 
         queue.add(jsonObjectRequest)
+        //loadList()
     }
 
-    private fun loadList() {
-        var entries = listOf<String>("salade", "boeuf", "glace")
-        val adapter = SimpleAdapter(entries)
-        binding.simpleRecyclerview.layoutManager = LinearLayoutManager(this)
-        binding.simpleRecyclerview.adapter = adapter
+    private fun loadList(list: List<Dish>?) {
+        //var entries = listOf<String>("salade", "boeuf", "glace")
+        val entries = list?.map { it.name }
+        list?.let {
+            val adapter = SimpleAdapter(it)
+            binding.simpleRecyclerview.layoutManager = LinearLayoutManager(this)
+            binding.simpleRecyclerview.adapter = adapter
+        }
+
     }
 }
