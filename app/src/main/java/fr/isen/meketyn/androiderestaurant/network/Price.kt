@@ -1,4 +1,6 @@
 package fr.isen.meketyn.androiderestaurant.network
 
-class Price(val price: String) {
+import java.io.Serializable
+
+class Price(val price: String): Serializable {
 }

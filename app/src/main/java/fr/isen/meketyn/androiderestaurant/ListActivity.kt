@@ -26,10 +26,10 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.button4.setOnClickListener {
+        /*binding.button4.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
+        }*/
         val message = intent.getStringExtra("message_key")
         val messageTextView : TextView = findViewById(R.id.textView2)
         messageTextView.text = message
@@ -69,7 +69,12 @@ class ListActivity : AppCompatActivity() {
         //var entries = listOf<String>("salade", "boeuf", "glace")
         val entries = list?.map { it.name }
         list?.let {
-            val adapter = SimpleAdapter(it)
+            val adapter = SimpleAdapter(it) {dish ->
+                //Log.d("dish", "selected dish ${dish.ingredient[0]}")
+                val intent = Intent(this, DetailActivity::class.java)
+                intent.putExtra("dish", dish)
+                startActivity(intent)
+            }
             binding.simpleRecyclerview.layoutManager = LinearLayoutManager(this)
             binding.simpleRecyclerview.adapter = adapter
         }
