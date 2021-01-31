@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+
     <TextView
         android:id="@+id/dishName"
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
 
     <TextView
         android:id="@+id/dishIngredients"
-        android:layout_width="192dp"
+        android:layout_width="278dp"
         android:layout_height="57dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,12 +33,59 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/dishImages"
-        android:layout_width="407dp"
-        android:layout_height="193dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/dishName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/itemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/un"
+        app:layout_constraintBottom_toTopOf="@+id/shopButton"
+        app:layout_constraintEnd_toStartOf="@+id/more"
+        app:layout_constraintStart_toEndOf="@+id/less"
+        app:layout_constraintTop_toBottomOf="@+id/dishIngredients"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <ImageView
+        android:id="@+id/more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toEndOf="@+id/less"
+        app:layout_constraintTop_toBottomOf="@+id/dishIngredients"
+        app:layout_constraintVertical_bias="0.237"
+        app:srcCompat="@drawable/ic_more" />
+
+    <ImageView
+        android:id="@+id/less"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dishIngredients"
+        app:layout_constraintVertical_bias="0.237"
+        app:srcCompat="@drawable/ic_less" />
+
+    <Button
+        android:id="@+id/shopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dishIngredients"
+        app:layout_constraintVertical_bias="0.718" />
 </androidx.constraintlayout.widget.ConstraintLayout>
