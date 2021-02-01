@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Button
 import fr.isen.meketyn.androiderestaurant.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

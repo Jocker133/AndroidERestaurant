@@ -8,4 +8,6 @@
     <string name="back">Back</string>
     <string name="text">Some text</string>
     <string name="un">1</string>
+    <string name="basket_validation">Votre plat a bien été rajouté au panier</string>
+    <string name="panier">Panier</string>
 </resources>

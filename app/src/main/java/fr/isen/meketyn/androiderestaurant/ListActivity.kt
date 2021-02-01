@@ -21,7 +21,7 @@ import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : BaseActivity() {
     private lateinit var binding: ActivityListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,35 +40,6 @@ class ListActivity : AppCompatActivity() {
         loadList(listOf<Dish>())
 
         makeRequest(message)
-
-        /*resultFromCache()?.let {
-            //La requete est en cache
-            parseResult(it, message)
-        } ?: run {
-            //La requete n'est pas en cache
-            val queue = Volley.newRequestQueue(this)
-            val url = "http://test.api.catering.bluecodegames.com/menu"
-
-            val jsonData = JSONObject()
-            jsonData.put("id_shop", "1")
-            val jsonObjectRequest = JsonObjectRequest(
-                    Request.Method.POST,
-                    url,
-                    jsonData,
-                    Response.Listener<JSONObject> { response ->
-                        cacheResult(response.toString())
-                        parseResult(response.toString(), message)
-                    },
-                    Response.ErrorListener { error ->
-                        error.message?.let {
-                            Log.d("request", it)
-                        } ?: run {
-                            Log.d("request", error.toString())
-                        }
-                    })
-
-            queue.add(jsonObjectRequest)
-        }*/
     }
 
     private fun makeRequest(message: String?) {
@@ -134,8 +105,6 @@ class ListActivity : AppCompatActivity() {
     private fun loadList(list: List<Dish>?) {
         list?.let {
             val adapter = SimpleAdapter(it) {dish ->
-                if(dish.ingredients == null)
-                    Log.d("dish", "ingredient is null")
                 val intent = Intent(this, DetailActivity::class.java)
                 intent.putExtra("dish", dish)
                 startActivity(intent)
