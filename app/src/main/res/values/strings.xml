@@ -10,4 +10,14 @@
     <string name="un">1</string>
     <string name="basket_validation">Votre plat a bien été rajouté au panier</string>
     <string name="panier">Panier</string>
+    <string name="commande">Valider votre commande</string>
+    <string name="account">Création de votre compte</string>
+    <string name="prenom">Prénom</string>
+    <string name="nom">Nom</string>
+    <string name="email">Email</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="login">Se connecter</string>
+    <string name="liste">Voir toutes vos commandes</string>
+    <string name="commandes">Voici toutes vos commandes</string>
+    <string name="prix">Prix</string>
 </resources>

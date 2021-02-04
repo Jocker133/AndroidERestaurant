@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PanierActivity"></activity>
+        <activity android:name=".list.ListCommandActivity"></activity>
+        <activity android:name=".registration.LoginActivity" />
+        <activity android:name=".registration.RegisterActivity" />
+        <activity android:name=".PanierActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
